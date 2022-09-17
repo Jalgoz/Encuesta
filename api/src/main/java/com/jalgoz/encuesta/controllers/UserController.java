@@ -6,10 +6,8 @@ import com.jalgoz.encuesta.models.responses.UserRest;
 import com.jalgoz.encuesta.services.IUserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -39,6 +37,25 @@ public class UserController { // Este es un controlador REST
 
         BeanUtils.copyProperties(user, userRest);
     
+        return userRest;
+    }
+
+    // Obtenemos el usuario logeado
+    @GetMapping
+    public UserRest getUser(Authentication authentication) {
+        // System.out.println(authentication);
+
+        // Obtenemos el email del usuario logeado
+        String userEmail = authentication.getPrincipal().toString();
+
+        // Obtenemos todos los datos del usuario logeado
+        UserEntity user = iUserService.getUser(userEmail);
+
+        // Obtenemos los datos del usuario rest
+        UserRest userRest = new UserRest();
+        BeanUtils.copyProperties(user, userRest);
+
+        // Retornamos el valor de userRest
         return userRest;
     }
 }

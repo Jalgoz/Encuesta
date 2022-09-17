@@ -1,5 +1,6 @@
 package com.jalgoz.encuesta.models;
 
+import com.jalgoz.encuesta.annotations.UniqueEmail;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
@@ -17,6 +18,7 @@ public class UserRegisterRequestModel {
 
     @NotEmpty
     @Email
+    @UniqueEmail
     private String email;
 
     @NotEmpty
