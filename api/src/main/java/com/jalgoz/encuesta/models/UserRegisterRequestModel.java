@@ -2,7 +2,6 @@ package com.jalgoz.encuesta.models;
 
 import com.jalgoz.encuesta.annotations.UniqueEmail;
 import lombok.Data;
-import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
