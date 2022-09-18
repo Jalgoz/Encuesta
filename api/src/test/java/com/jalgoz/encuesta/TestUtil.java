@@ -23,7 +23,7 @@ public class TestUtil {
 
         StringBuilder sb = new StringBuilder(length);
 
-        for (int i = 0; i < sb.length(); i++) {
+        for (int i = 0; i < length; i++) {
             sb.append(chars.charAt(rnd.nextInt(chars.length())));
         }
 

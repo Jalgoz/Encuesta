@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends CrudRepository<UserEntity, Long> { // Le mandamos la entidad del usuario y la clave que es el id
 
     public UserEntity findByEmail(String email);
+
+    public UserEntity findById(long id);
 }

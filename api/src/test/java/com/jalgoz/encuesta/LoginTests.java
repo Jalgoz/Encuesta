@@ -90,11 +90,12 @@ public class LoginTests {
         assertTrue(token.contains("Bearer")); // Comprobamos que el token este bien
     }
 
-    // Para poder re utilizar se creará este método
+    // Para re utilizar se creará este método que hace la petición de login
     public <T> ResponseEntity<T> login(UserLoginRequestModel model, Class<T> responseType) {
         return testRestTemplate.postForEntity(API_LOGIN_URL, model, responseType); // Dice que enviaremos una petición post al URL con el modelo de datos para login
     }
 
+    // Para re utilizar se creará este método que hace la petición de login pero obteniendo el token
     public <T> ResponseEntity<T> login(UserLoginRequestModel data, ParameterizedTypeReference<T> responseType) {
         HttpEntity<UserLoginRequestModel> entity = new HttpEntity<UserLoginRequestModel>(data, new HttpHeaders()); // Para obtener el token
         return testRestTemplate.exchange(API_LOGIN_URL, HttpMethod.POST, entity, responseType); // Dice que enviaremos una petición post al URL con el modelo de datos para login
