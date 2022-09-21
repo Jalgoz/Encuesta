@@ -13,7 +13,6 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.test.context.ActiveProfiles;
 
-import java.lang.reflect.Type;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
